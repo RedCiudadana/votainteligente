@@ -25,3 +25,7 @@ preguntales/tests/testing_mails/attachments/hello.pd_*.pdf
 .ropeproject
 .idea/
 glenv/
+votainteligente_theme_red_ciudadana
+django_popolo.egg-info/
+whoosh_index/
+

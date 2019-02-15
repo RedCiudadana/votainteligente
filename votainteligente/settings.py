@@ -99,7 +99,11 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = ''
 LOGIN_ERROR_URL = '/'
 SOCIAL_AUTH_LOGIN_ERROR_URL = '/'
 
-SASS_PROCESSOR_ENABLED = True
+SASS_PROCESSOR_INCLUDE_DIRS = [
+    os.path.join(BASE_DIR, 'static/sass'),
+]
+SASS_PROCESSOR_ENABLED = False
+
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
