@@ -101,8 +101,8 @@ wizard_forms_fields = [
             ('title', forms.CharField(max_length=256,
                                       widget=forms.TextInput())),
             ('is_local_meeting', forms.BooleanField(required=False)),
-            ('generated_at', forms.CharField(required=False,
-                                                    choices=get_possible_generating_areas(),
+            ('generated_at', forms.ModelChoiceField(required=False,
+                                                    queryset=get_possible_generating_areas(),
                                                     empty_label=_(u"No aplica"))
                                                     ),
             ('terms_and_conditions', forms.BooleanField(

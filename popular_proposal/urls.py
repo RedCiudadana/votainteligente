@@ -40,7 +40,7 @@ urlpatterns = [
         name='propose_wizard_full'),
     url(_(r'^crear/?$'),
         wizard_creator_chooser().as_view(),
-        name='propose_wizard_full_without_area'),
+        name='propose_wizard_full'),
     url(r'^detail/(?P<slug>[-\w]+)/?$',
         xframe_options_exempt(PopularProposalDetailView.as_view()),
         name='detail'),
