@@ -65,7 +65,7 @@ $('[data-toggle="tooltip"]').tooltip();
     {% for proposal in popular_proposals %}
         {% display_proposal_card proposal %}
       {% empty %}
-      {% url 'popular_proposals:propose_wizard_full_without_area' as create_proposal_url %}
+      {% url 'popular_proposals:propose_wizard_full' as create_proposal_url %}
         <p class="bg-info text-center">
           {% trans "Aún no se han generado propuestas para esta búsqueda." %}
         </p>
