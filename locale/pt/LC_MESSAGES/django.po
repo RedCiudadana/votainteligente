@@ -4071,7 +4071,7 @@ msgid "El uso excesivo de bolsas plásticas en los supermercados."
 msgstr "O uso excessivo de sacolas plásticas nos supermercados."
 
 #: votai_general_theme/templates/popular_proposal/steps/select_area.html:2
-msgid "Encuentra tu comuna"
+msgid "Encuentra tu municipio. (Departamento, municipio)"
 msgstr "Encontre sua comunidade"
 
 #: votai_general_theme/templates/popular_proposal/steps/tips_paso1.html:5
