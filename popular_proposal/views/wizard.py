@@ -61,6 +61,7 @@ class ProposalWizardBase(SessionWizardView):
         }
 
         kwargs['area'] = self.determine_area(data)
+        kwargs['generated_at'] = self.determine_area(data)
         temporary_data = self.model.objects.create(**kwargs)
         context = self.get_context_data(form=None)
         context.update({'popular_proposal': temporary_data,

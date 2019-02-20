@@ -350,10 +350,8 @@ class AreaForm(forms.Form):
         if is_staff:
             area_qs = Area.objects.all()
         self.fields['area'].choices = [(a.id, a.name) for a in area_qs]
-        self.fields['generated_at'].choices = [(a.id, a.name) for a in area_qs]
         if config.DEFAULT_AREA:
             self.initial['area'] = config.DEFAULT_AREA
-            self.initial['generated_at'] = config.DEFAULT_AREA
 
     def clean(self):
         cleaned_data = super(AreaForm, self).clean()
