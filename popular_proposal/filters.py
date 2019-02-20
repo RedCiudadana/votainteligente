@@ -123,4 +123,4 @@ class ProposalWithAreaFilter(ProposalWithoutAreaFilter):
 class ProposalGeneratedAtFilter(ProposalWithoutAreaFilter):
     generated_at = ModelChoiceFilter(queryset=filterable_areas,
                                      empty_label=_(u"Selecciona"),
-                                     label=_(u"Comuna donde fue generada"))
+                                     label=_(u"Municipio donde fue generada"))
