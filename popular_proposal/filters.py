@@ -13,9 +13,9 @@ from django.utils.translation import ugettext_lazy as _
 
 
 def filterable_areas(request):
-    areas = Area.public.all().exclude(proposals_generated_here__isnull=True)
-    if settings.FILTERABLE_AREAS_TYPE:
-        return areas.filter(classification__in=settings.FILTERABLE_AREAS_TYPE)
+    areas = Area.public.all()
+    # if settings.FILTERABLE_AREAS_TYPE:
+        # return areas.filter(classification__in=settings.FILTERABLE_AREAS_TYPE)
     return areas
 
 
