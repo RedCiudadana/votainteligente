@@ -117,7 +117,7 @@ def possible_areas(request):
 
 
 class ProposalWithAreaFilter(ProposalWithoutAreaFilter):
-    area = ModelChoiceFilter(queryset=possible_areas, label=_(u"Comuna donde fue generada"))
+    area = ModelChoiceFilter(queryset=possible_areas, label=_(u"Municipio para el cual fue generada"))
 
 
 class ProposalGeneratedAtFilter(ProposalWithoutAreaFilter):

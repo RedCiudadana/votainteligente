@@ -38,7 +38,7 @@ from elections.models import Area, Candidate
 from django import forms
 
 from popular_proposal.filters import (ProposalWithoutAreaFilter,
-                                      ProposalGeneratedAtFilter)
+                                      ProposalWithAreaFilter)
 
 from popular_proposal.forms import (CandidateCommitmentForm,
                                     CandidateNotCommitingForm,
@@ -191,7 +191,7 @@ class UnlikeProposalView(View):
 
 class ProposalFilterMixin(object):
     model = PopularProposal
-    filterset_class = ProposalGeneratedAtFilter
+    filterset_class = ProposalWithAreaFilter
     order_by = None
 
     def _get_filterset(self):
@@ -222,7 +222,7 @@ class ProposalFilterMixin(object):
 
 class HomeView(EmbeddedViewBase, ProposalFilterMixin, FilterView):
     template_name = 'popular_proposal/home.html'
-    filterset_class = ProposalGeneratedAtFilter
+    filterset_class = ProposalWithAreaFilter
     context_object_name = 'popular_proposals'
 
     def get_context_data(self, **kwargs):
