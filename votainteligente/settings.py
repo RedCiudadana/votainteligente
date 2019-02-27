@@ -17,7 +17,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-SITE_ID = 1
+SITE_ID = 9
 
 # Application definition
 
@@ -81,10 +81,10 @@ INSTALLED_APPS = (
     'custom_sites',
     'votai_general_theme',
     'hitcount',
+    'google_analytics',
 
 )
 INSTALLED_APPS_AFTER_ALL = ()
-
 
 
 SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
@@ -123,6 +123,7 @@ MIDDLEWARE = [
     'custom_sites.middleware.VotaIcurrentSiteMiddleware',
     # 'linaro_django_pagination.middleware.PaginationMiddleware',
     'social_django.middleware.SocialAuthExceptionMiddleware',
+    #'google_analytics.middleware.GoogleAnalyticsMiddleware',
 ]
 ALLOWED_HOSTS = ['*']
 INTERNAL_IPS = ["127.0.0.1", "localhost"]

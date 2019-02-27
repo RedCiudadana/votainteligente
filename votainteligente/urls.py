@@ -81,6 +81,7 @@ urlpatterns = [
     url(r'^api/', include(router.urls)),
     url(r'^robots\.txt', include('robots.urls')),
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}),
+    url(r'^djga/', include('google_analytics.urls')),
 
 ]
 
