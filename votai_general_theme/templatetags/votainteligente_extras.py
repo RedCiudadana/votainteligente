@@ -1,3 +1,7 @@
+# coding=utf-8
+from django import forms
+from django.core.validators import validate_slug
+from django.utils.translation import ugettext as _
 from django import template
 from django.utils.safestring import mark_safe
 from elections.models import Election, Area, Candidate
@@ -238,10 +242,15 @@ def times(number):
 
 register.filter('is_candidate', is_candidate)
 
+class LoginForm(AuthenticationForm):
+    username = forms.CharField(max_length=50, validators=[validate_slug], label=_(u'Usuario'))
+    password = forms.CharField(max_length=100, validators=[validate_slug], label=_(u'Contraseña'))
+
+
 
 @register.inclusion_tag('login/basic.html')
 def basic_login(url=''):
-    form = AuthenticationForm()
+    form = LoginForm()
     return {'form': form, 'url': url}
 
 

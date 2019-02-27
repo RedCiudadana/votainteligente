@@ -48,7 +48,7 @@ class UserCreationForm(UserCreationForm):
     username = forms.CharField(max_length=50, validators=[validate_slug], label=_(u'Usuario'))
     email = forms.CharField(max_length=100, validators=[validate_slug], label=_(u'Correo electrónico'))
     password1 = forms.CharField(max_length=100, validators=[validate_slug], label=_(u'Contraseña'))
-    password2 = forms.CharField(max_length=100, validators=[validate_slug], label=_(u'Confirmación contraseña'))
+    password2 = forms.CharField(max_length=100, validators=[validate_slug], label=_(u'Confirmación contraseña'), help_text=_(u'Ingresa la misma contraseña para la verificación'))
     class Meta:
         model = User
         fields = ('username', 'email', )
