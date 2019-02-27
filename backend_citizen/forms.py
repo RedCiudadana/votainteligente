@@ -45,12 +45,16 @@ class UserChangeForm(forms.ModelForm):
 
 
 class UserCreationForm(UserCreationForm):
-    username = forms.CharField(max_length=50, validators=[validate_slug])
+    username = forms.CharField(max_length=50, validators=[validate_slug], label=_(u'Usuario'))
+    email = forms.CharField(max_length=100, validators=[validate_slug], label=_(u'Correo electrónico'))
+    password1 = forms.CharField(max_length=100, validators=[validate_slug], label=_(u'Contraseña'))
+    password2 = forms.CharField(max_length=100, validators=[validate_slug], label=_(u'Confirmación contraseña'))
     class Meta:
         model = User
         fields = ('username', 'email', )
         labels = {'username': _(u'Nombre de usuario, ej: votante1975, animal-mamifero, joven-idealista'),
-                  'email': _(u'Email')
+                  'email': _(u'Correo electrónico'),
+                  'email': _(u'Correo electrónico')
                   }
         help_texts = {'username': _(u'El nombre de usuario no tiene espacios ni acentos.')
                   }
@@ -63,6 +67,7 @@ class UserCreationForm(UserCreationForm):
 
 
 class GroupCreationForm(UserCreationForm):
+    
     name = forms.CharField(label=_(u'El nombre de tu organización'), max_length=30)
 
     class Meta:
