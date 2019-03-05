@@ -55,7 +55,7 @@ urlpatterns = [
     url(_(r'^que_es/$'),
         TemplateView.as_view(template_name='que_es.html'),
         name='que_es'),
-    url(_(r'^material_ciudadano/$'),
+    url(_(r'^elecciones_2019/$'),
         TemplateView.as_view(template_name='material_ciudadano.html'),
         name='material_ciudadano'),
     url(r'^cores/$',
