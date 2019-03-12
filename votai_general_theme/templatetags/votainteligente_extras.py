@@ -244,7 +244,7 @@ register.filter('is_candidate', is_candidate)
 
 class LoginForm(AuthenticationForm):
     username = forms.CharField(max_length=50, validators=[validate_slug], label=_(u'Usuario'))
-    password = forms.PasswordField(max_length=100, validators=[validate_slug], label=_(u'Contraseña'))
+    password = forms.CharField(max_length=100, validators=[validate_slug], label=_(u'Contraseña'), widget=forms.PasswordInput)
 
 
 
