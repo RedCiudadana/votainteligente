@@ -45,7 +45,7 @@ class UserChangeForm(forms.ModelForm):
 
 
 class UserCreationForm(UserCreationForm):
-    username = forms.CharField(max_length=50, validators=[validate_slug], label=_(u'Usuario'))
+    username = forms.CharField(max_length=50, label=_(u'Usuario'))
     email = forms.EmailField(max_length=100, label=_(u'Correo electrónico'))
     password1 = forms.CharField(max_length=100, label=_(u'Contraseña'), widget=forms.PasswordInput)
     password2 = forms.CharField(max_length=100, label=_(u'Confirmación contraseña'), help_text=_(u'Ingresa la misma contraseña para la verificación'), widget=forms.PasswordInput)
