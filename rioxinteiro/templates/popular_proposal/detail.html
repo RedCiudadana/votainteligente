@@ -34,7 +34,7 @@ $(function(){
     @ciudadanoi
   {% endif %}
   {% endspaceless %}">
-  <meta name="twitter:title" content="{% trans "¡Ingresa a votainteligente.cl y apoya esta propuesta!" %}">
+  <meta name="twitter:title" content="{% trans "¡Ingresa a nuestraeleccion.gt y apoya esta propuesta!" %}">
   <meta name="twitter:description" content="{% spaceless %}
   {% if popular_proposal.proposer.profile.is_organization and popular_proposal.proposer.organization_template.twitter %}
   {% blocktrans with proposer_twitter=popular_proposal.proposer.organization_template.twitter|extract_twitter_username proposal=popular_proposal.title %}{{proposer_twitter}} propone {{ proposal }}{% endblocktrans %}
