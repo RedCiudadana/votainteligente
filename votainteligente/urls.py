@@ -11,6 +11,8 @@ from django.contrib.sitemaps.views import sitemap
 from votainteligente.sitemaps  import ElectionsSitemap, CandidatesSitemap, ProposalSitemap
 from votainteligente.rest_api_router import router
 from django.utils.translation import ugettext_lazy as _
+
+from popular_proposal.views.proposal_views import HomeView
 admin.autodiscover()
 admin.site.site_header = getattr(settings, 'ADMIN_HEADER', 'Vota Inteligente')
 
@@ -23,7 +25,7 @@ sitemaps = {
 
 urlpatterns = [
     # Examples:
-    # url(r'^$', 'votainteligente.views.home', name='home'),
+    url(r'^$', HomeView.as_view(), name='home'),
     # url(r'^votainteligente/', include('votainteligente.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
