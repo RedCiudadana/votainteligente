@@ -20,7 +20,7 @@ def filterable_areas(request):
 
 
 class TextSearchForm(Form):
-    text = CharField(label=_(u'Qué buscas?'), required=False)
+    text = CharField(label=_(u'¿Qué buscas?'), required=False)
     order_by = ChoiceField(required=False,
                            label=_(u"Ordenar por"),
                            choices=[('', _(u'Por apoyos')),
@@ -117,7 +117,7 @@ def possible_areas(request):
 
 
 class ProposalWithAreaFilter(ProposalWithoutAreaFilter):
-    area = ModelChoiceFilter(queryset=possible_areas, label=_(u"Municipio para el cual fue generada"))
+    area = ModelChoiceFilter(queryset=possible_areas, label=_(u"Municipio para el cual fue generada"), empty_label="Es necesario seleccionar un area para filtrar.")
 
 
 class ProposalGeneratedAtFilter(ProposalWithoutAreaFilter):
