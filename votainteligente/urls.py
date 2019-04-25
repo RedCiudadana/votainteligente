@@ -25,7 +25,8 @@ sitemaps = {
 
 urlpatterns = [
     # Examples:
-    url(r'^$', HomeView.as_view(), name='home'),
+    # url(r'^$', HomeView.as_view(), name='home'),
+    # url(r'^$', 'votainteligente.views.home', name='home'),
     # url(r'^votainteligente/', include('votainteligente.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
