@@ -2188,6 +2188,25 @@ Can this be done with Masonry options? */
 
 .print-share-urls { display:none; }
 
+.gallery {
+  text-align: center;
+}
+
+.gallery > div {
+  float: unset;
+}
+
+.material.videos {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .material.videos h3 {
+    text-align: left;
+  }
+}
+
+
 @import 'mediaqueries';
 @import '2017sitio1';
 @import 'media-2017sitio1';
