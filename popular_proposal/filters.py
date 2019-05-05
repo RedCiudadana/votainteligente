@@ -53,6 +53,7 @@ class ProposalWithoutAreaFilter(FilterSet):
                  strict=None,
                  **kwargs):
         self.area = kwargs.pop('area', None)
+        print(queryset)
         if self.area is None and data is not None:
             self.area = data.get('area', None)
             if self.area:
@@ -62,8 +63,12 @@ class ProposalWithoutAreaFilter(FilterSet):
                     self.area = None
         if queryset is None:
             queryset = PopularProposal.ordered.all()
-        if self.area is not None:
-            queryset = queryset.filter(area=self.area)
+            queryset = PopularProposal.ordered.all()
+            print(queryset)
+        # Al no seleccionar una area, está queryset terminaba vacía.
+        # if self.area is not None:
+        #     queryset = queryset.filter(area=self.area)
+        #     print(queryset)
         super(ProposalWithoutAreaFilter, self).__init__(data=data,
                                                         queryset=queryset,
                                                         prefix=prefix,
@@ -117,7 +122,7 @@ def possible_areas(request):
 
 
 class ProposalWithAreaFilter(ProposalWithoutAreaFilter):
-    area = ModelChoiceFilter(queryset=possible_areas, label=_(u"Municipio para el cual fue generada"), empty_label="Es necesario seleccionar un area para filtrar.")
+    area = ModelChoiceFilter(queryset=possible_areas, label=_(u"Municipio para el cual fue generada"))
 
 
 class ProposalGeneratedAtFilter(ProposalWithoutAreaFilter):
