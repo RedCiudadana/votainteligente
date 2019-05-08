@@ -13,9 +13,9 @@ reader = csv.DictReader(open('scripts_and_data/8may.csv'))
 counter = 0
 
 for info_diputado in reader:
-    diputado, isCreated = Candidate.objects.get_or_create(name=unicode(info_diputado['NOMBRE'], 'utf-8'))
+    diputado, isCreated = Candidate.objects.get_or_create(name=unicode(info_diputado['Nombre completo'], 'utf-8'))
     # print(diputado)
-    partido = info_diputado['PARTIDO']
+    partido = info_diputado['Partido']
     # print(partido)
     if partido:
         PersonalData.objects.get_or_create(candidate=diputado, label=u'Partido', value=partido)
@@ -23,11 +23,10 @@ for info_diputado in reader:
     email = unicode(info_diputado['CORREO ELECTRÓNICO'], 'utf-8')
     if email and validateEmail(email):
         contacto, isCreated = CandidacyContact.objects.get_or_create(candidate=diputado, mail=email)
-        if not isCreated:
-            contacto.send_mail_with_user_and_password()
-
-
+        # if not isCreated:
+        #     contacto.send_mail_with_user_and_password()
+    
     counter += 1
-    send_candidate_username_and_password(diputado)
+    # send_candidate_username_and_password(diputado)
     if not counter % 5:
         print(counter)
