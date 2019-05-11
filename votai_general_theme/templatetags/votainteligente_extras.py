@@ -328,7 +328,7 @@ def manages_this(user, candidate):
 
 @register.simple_tag(name='commiters_by_election_position')
 def commiters_by_election_position(proposal, position):
-    return proposal.commitments.filter(candidate__elections__position=position).distinct()
+    return proposal.commitments.filter().distinct()
 
 
 @register.filter
