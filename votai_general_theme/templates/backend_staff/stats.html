@@ -161,7 +161,7 @@
             {% endthumbnail %}
           {% endif %}
         </td>
-        <td><a href="{{ org.organization_template.get_absolute_url }}">{{ org.get_full_name }}</a></td>
+        <td><a>{{ org.get_full_name }}</a></td>
         <td>{{ org.profile.user.username }}</td>
         <td>{{ org.proposals.count }}</td>
         <td>{{ org.likes.count }}</td>
