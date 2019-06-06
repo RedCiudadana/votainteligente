@@ -386,7 +386,7 @@ municipios = {'Alta Verapaz': [
 from elections.models import Topic, QuestionCategory
 
 from elections.models import Area, Election
-guatemala = Area.objects.create(name="Guatemala", identifier="GT", classification="country")
+guatemala = Area.objects.get(name="Guatemala", identifier="GT", classification="country")
 
 imposibles = []
 for e in estados:

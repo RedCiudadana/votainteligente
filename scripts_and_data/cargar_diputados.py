@@ -7,6 +7,7 @@ from elections.models import Candidate, Election, PersonalData, Area
 
 from backend_candidate.models import CandidacyContact
 from backend_candidate.send_mails_to_candidates import send_user_to_candidates
+from backend_candidate.models import send_candidate_username_and_password
 
 from votai_utils.send_mails import validateEmail
 
