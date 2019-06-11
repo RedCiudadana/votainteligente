@@ -11,13 +11,17 @@ from backend_candidate.models import send_candidate_username_and_password
 
 from votai_utils.send_mails import validateEmail
 
-reader = codecs.open('scripts_and_data/data/nuestraeleccion2.csv', 'r', encoding='utf-8')
-
-# Seleccionamos la elección a la cual pertenece este candidato
-election = Election.objects.get(name="Diputado por Listado Nacional")
+reader = codecs.open('scripts_and_data/data/nuestraeleccion3.csv', 'r', encoding='utf-8')
 
 for info_diputado in reader:
     info_diputado = info_diputado.split(u',')
+    print(info_diputado)
+    # Seleccionamos la elección a la cual pertenece este candidato
+    try:
+        election, created = Election.objects.get(name=info_diputado[2])
+    except Exception as identifier:
+        print(info_diputado[2])
+        raise ValueError('Elección no encontrada {}'.format(info_diputado[2]))
     # Creamos candidato, o lo obtenemos por su nombre (posible conflicto con candidatos con el mismo nombre),
     # preferiblemente ser cuidadosos y utilizar "create".
     candidate, created = Candidate.objects.get_or_create(name=info_diputado[1])
@@ -31,7 +35,6 @@ for info_diputado in reader:
     email = info_diputado[5]
     print(email)
     if email:
-        print('Enviar correo?')
         contacto, isCreated = CandidacyContact.objects.get_or_create(candidate=candidate, mail=email)
         # Si es nuevo contacto, nueva llave entre candidato y correo. * Pueden haber correos iguales para diferentes candidatos.
         if isCreated:
