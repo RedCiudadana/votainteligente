@@ -114,7 +114,7 @@ class OrganizationTemplate(models.Model, ShareableMixin):
     def get_absolute_url(self):
         try:
             return reverse('organization_profiles:home', kwargs={'slug': self.organization.username})
-        except expression as identifier:
+        except:
             return ''
 
     def get_shared_image(self):

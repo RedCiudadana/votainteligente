@@ -82,6 +82,7 @@ INSTALLED_APPS = (
     'votai_general_theme',
     'hitcount',
     'google_analytics',
+    'import_export',
 
 )
 INSTALLED_APPS_AFTER_ALL = ()

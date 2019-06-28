@@ -1,5 +1,6 @@
 # coding=utf-8
 from django.contrib import admin
+from import_export.admin import ExportActionMixin
 from popular_proposal.models import (PopularProposal,
                                      ProposalTemporaryData,
                                      Commitment,
@@ -14,7 +15,7 @@ class PopularProposalSiteAdmin(admin.ModelAdmin):
     pass
 
 @admin.register(PopularProposal)
-class PopularProposalAdmin(admin.ModelAdmin):
+class PopularProposalAdmin(ExportActionMixin, admin.ModelAdmin):
     list_display = ('id',
                     'area',
                     'title',
