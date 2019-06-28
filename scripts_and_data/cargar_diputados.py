@@ -18,7 +18,7 @@ for info_diputado in reader:
     print(info_diputado)
     # Seleccionamos la elección a la cual pertenece este candidato
     try:
-        election = Election.objects.get(name=info_diputado[2])
+        election = Election.objects.get('Diputado por Listado Nacional')
     except Exception as identifier:
         print(info_diputado[2])
         raise identifier
@@ -27,6 +27,8 @@ for info_diputado in reader:
     candidate, created = Candidate.objects.get_or_create(name=info_diputado[1])
     if created:
         election.candidates.add(candidate)
+    else:
+        continue
     # Verificamos si tiene partido, si es el caso, le asignamos ese partido
     partido = info_diputado[0]
     if partido:
